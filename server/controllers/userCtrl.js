@@ -132,8 +132,8 @@ exports.resetPassword = async (req, res) => {
                 }
                 const user = await User.findOne({ resetLink });
                 if (user) {
-                    const hashedPassword = await bcrypt.hash(password, 10);
                     if (password === confirmPassword) {
+                        const hashedPassword = await bcrypt.hash(password, 10);
                         await User.findOneAndUpdate(
                             { resetLink },
                             { password: hashedPassword }
