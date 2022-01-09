@@ -1,0 +1,116 @@
+header {
+    position: fixed;
+    display: flex;
+    background: var(--main-green);
+    width: 100%;
+    height: 70px;
+    z-index: 100;
+}
+
+.logo-codent{
+    margin-top: 5px;
+    margin-left: 35px;
+    font-size:20px;
+    color:var(--main-black);
+    font-weight: bold;
+}
+
+.header_left {
+    align-items: center;
+    display: flex;
+    height: 70px;
+    width: 50%;
+}
+
+.header_left #sidebar_btn {
+    cursor: pointer;
+    font-size: 18px;
+    color: var(--main-white);
+    margin-left: 20px;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+.header_logo {
+    width: 100px;
+    height: 30px;
+    margin-left: 30px;
+}
+
+.header_right {
+    width: 50%;
+    display: flex;
+    margin-left: 50px;
+    align-items: center;
+}
+
+.header_right .part_one {
+    align-items: center;
+    display: flex;
+    width: 50%;
+}
+
+
+.header_right .part_two {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 110px;
+    width: 50%;
+}
+
+.user-menu {
+    position: fixed;
+    top: 75px;
+    right: 130px;
+    padding: 10px 20px;
+    background: var(--main-green);
+    width: 200px;
+    height: 140px;
+    box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.user-menu ul li{
+    list-style: none;
+    margin-top: 5px;
+}
+
+.user-menu ul li a {
+    color:var(--main-black);
+    font-weight: bold;
+    font-size:15px;
+}
+
+.user-menu p {
+    color: var(--main-black);
+    font-weight: bold;
+}
+
+.user-menu-links {
+    margin-top: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.header_right .img-user-icon {
+    border-radius: 50%;
+    border:1px solid #fff;
+    height: 45px;
+    width: 45px;
+    cursor: pointer;
+}
+
+.header_right h4 {
+    margin-left: 20px;
+    color: var(--main-black);
+}
+
+.user-menu-links ul li i.fas{
+    color:var(--main-black);
+    margin-right: 10px;
+    font-size:14px;
+}

@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+:root {
+    --main-white: #FFFFFF;
+    --main-black: #201b2c;
+    --main-green: #23A455;
+    --sec-green:#05d454;
+    --sec-black:rgb(8, 4, 15);
+    --main-grey: #555;
+    --body-grey:rgb(34, 32, 32);
+    --err-toastify: crimson;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Noto Sans", Arial, Helvetica, sans-serif;
+}
+
+body{
+    background: var(--sec-black);
+}
+
+
+.Toastify__toast--error {
+    background: var(--err-toastify) !important;
+    border-radius:0px;
+}
+
+.Toastify__toast--success {
+    background: var(--main-green) !important;
+}
+
+@import url(./styles/auth.css);
+
+@import url(./styles/menu.css);
