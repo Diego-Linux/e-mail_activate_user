@@ -11,4 +11,8 @@ router.put('/forgot-password', userCtrl.forgotPassword);
 
 router.put('/reset-password', userCtrl.resetPassword);
 
+router.post('/logout', userCtrl.logout);
+
+router.post('/refresh_token', userCtrl.generateAccessToken);
+
 module.exports = router;

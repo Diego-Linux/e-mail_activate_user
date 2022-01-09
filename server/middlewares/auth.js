@@ -1,47 +1,24 @@
+const User = require("../models/User");
 const jwt = require('jsonwebtoken');
 
-exports.generateToken = (user) => {
-    return jwt.sign(
-        {
-            id: user.id,
-            username: user.username,
-            email: user.email,
-            isAdmin: user.isAdmin,
-        },
-        process.env.JWT_SECRET || 'lifdus89fsdfods8fy9sdf',
-        {
-            expiresIn: '7d',
-        }
-    );
-};
+const { ACCESS_TOKEN_SECRET } = process.env;
 
-exports.isAuth = (req, res, next) => {
-    const auth = req.headers.authorization;
-    if (auth) {
-        const token = auth.slice(7, auth.length);
-        jwt.verify(
-            token,
-            process.env.JWT_SECRET || 'lifdus89fsdfods8fy9sdf',
-            (err, decode) => {
-                if (err) {
-                    res.status(401).send({ message: 'Invalid Token' });
-                } else {
-                    req.user = decode;
-                    next();
-                }
-            }
-        );
-    } else {
-        res.status(401).send({ message: 'No Token' });
+const auth = async (req, res, next) => {
+    try {
+        const token = req.header("Authorization")
+
+        if (!token) return res.status(400).json({ message: "Invalid Authentication." })
+
+        const decoded = jwt.verify(token, ACCESS_TOKEN_SECRET)
+        if (!decoded) return res.status(400).json({ message: "Invalid Authentication." })
+
+        const user = await User.findOne({ _id: decoded.id })
+
+        req.user = user
+        next()
+    } catch (err) {
+        return res.status(500).json({ error: err.message })
     }
-};
-exports.isAdmin = (req, res, next) => {
-    if (req.user && req.user.isAdmin) {
-        next();
-    } else {
-        res.status(401).send({ message: 'Invalid Admin Token' });
-    }
-};
+}
 
-
-
+module.exports = auth

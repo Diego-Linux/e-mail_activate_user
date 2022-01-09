@@ -7,16 +7,16 @@ const activateTemplate = async (email, username, url) => {
           <div style="width:90%;margin:auto;
            padding: 50px 20px; font-size: 110%;">
           <h2 style="text-align: center; color: #555;">
-          Hello ${username}, welcome to Code, we are very happy to have you with us!</h2>
+          Hello ${username}, welcome to Code!</h2>
         
                   <p style="font-weight:bold;">Click the button below to confirm your account.:</p>
         
                   <div style="display:flex;flex-direction:column;align-items:center;
                   justify-content:center;">
                   <br />
-                  <a href=${url} style="background: blue;text-decoration: none;
-                  color: white; padding: 10px 20px; margin: 10px 0; font-weight:bold;
-                   width:15rem; text-align:center; border-radius:5px;">
+                  <a href=${url} style="background: #05d454;text-decoration: none;
+                  color: white; padding: 14px 25px; margin: 10px 0; font-weight:bold;
+                   width:15rem; text-align:center; border-radius:10px;">
                  Access</a>
                   </div>
                   <br />
@@ -44,9 +44,9 @@ const resetTemplate = async (email, username, url) => {
                   <div style="display:flex;flex-direction:column;align-items:center;
                   justify-content:center;">
                   <br />
-                  <a href=${url} style="background: blue;text-decoration: none;
-                  color: white; padding: 10px 20px; margin: 10px 0;
-               font-weight:bold; width:15rem; text-align:center; border-radius:5px;">
+                  <a href=${url} style="background: #05d454;text-decoration: none;
+                  color: white; padding: 14px 25px; margin: 10px 0; font-weight:bold;
+                   width:15rem; text-align:center; border-radius:10px;">
                  Access</a>
                   </div>
                   <br />
