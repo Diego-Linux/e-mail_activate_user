@@ -14,7 +14,7 @@ exports.createUser = async (req, res) => {
 
     if (userExists) {
         return res.status(400).json({ error: "E-mail already exists." })
-    }
+    };
 
     const token = jwt.sign({ username, email, password }, JWT_ACC_ACTIVATE,
         { expiresIn: '20m' });
@@ -36,7 +36,6 @@ exports.createUser = async (req, res) => {
 exports.activateAccount = async (req, res) => {
     const { checkToken } = req.body;
     if (checkToken) {
-        console.log('chegou')
         jwt.verify(checkToken, JWT_ACC_ACTIVATE, async function (err, decodedToken) {
             if (err) {
                 return res.status(400).json({ error: 'Incorrect or expired token.' })
@@ -59,7 +58,7 @@ exports.activateAccount = async (req, res) => {
             return res.status(200).json({ username, email });
         })
     }
-}
+};
 
 exports.userLogin = async (req, res) => {
     try {
@@ -131,7 +130,7 @@ exports.forgotPassword = async (req, res) => {
         res.status(200).json({ message: `E-mail successfuly sent!` })
         :
         res.json({ error: 'Error sending email.' });
-}
+};
 
 // Reset password
 exports.resetPassword = async (req, res) => {
@@ -161,7 +160,6 @@ exports.resetPassword = async (req, res) => {
     }
 };
 
-
 exports.logout = async (req, res) => {
     try {
         res.clearCookie('refreshtoken', { path: '/api/auth/refresh_token' })
@@ -169,7 +167,7 @@ exports.logout = async (req, res) => {
     } catch (err) {
         return res.status(500).json({ error: err.message })
     }
-}
+};
 
 exports.generateAccessToken = async (req, res) => {
     try {
@@ -201,12 +199,12 @@ exports.generateAccessToken = async (req, res) => {
     } catch (err) {
         return res.status(500).json({ msg: err.message })
     }
-}
+};
 
 const createAccessToken = (payload) => {
-    return jwt.sign(payload, ACCESS_TOKEN_SECRET, { expiresIn: '1d' })
-}
+    return jwt.sign(payload, ACCESS_TOKEN_SECRET, { expiresIn: '1d' });
+};
 
 const createRefreshToken = (payload) => {
-    return jwt.sign(payload, REFRESH_TOKEN_SECRET, { expiresIn: '30d' })
-}
+    return jwt.sign(payload, REFRESH_TOKEN_SECRET, { expiresIn: '30d' });
+};
